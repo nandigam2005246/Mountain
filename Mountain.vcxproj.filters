@@ -15,27 +15,27 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="smartpointers.cpp">
+    <ClCompile Include="Source\client.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="linkedlist.cpp">
+    <ClCompile Include="Source\linkedlist.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="algorithms.cpp">
+    <ClCompile Include="Source\smartpointers.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="client.cpp">
+    <ClCompile Include="Source\algorithms.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="algorithms.hpp">
+    <ClInclude Include="Header\linkedlist.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="linkedlist.hpp">
+    <ClInclude Include="Header\smartpointers.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="smartpointers.hpp">
+    <ClInclude Include="Header\algorithms.hpp">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
