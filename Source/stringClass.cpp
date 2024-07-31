@@ -77,16 +77,6 @@ int main()
 	//String str3(str2); // copy constructor
 	//cout << str3;
 	//cout << str3;
-
-	std::map<std::string, int> names;
-	names.emplace("Hello", 3);
-	names.emplace("Hello1", 4);
-
-	for (auto& name : names)
-	{
-		cout << name.first << endl;
-		cout << name.second << endl;
-	}
 }
 
 ostream& operator<<(ostream& out, const String& obj)
