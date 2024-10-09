@@ -83,16 +83,14 @@ public:
         obj.m_ptr = nullptr;
     }
 
-    friend void Swap(String& lhs, String& rhs);
+    void Swap(String& lhs, String& rhs)
+    {
+        std::swap(lhs.m_ptr, rhs.m_ptr);
+    }
 
 private:
     char* m_ptr;
 };
-
-void Swap(String& lhs, String& rhs)
-{
-    std::swap(lhs.m_ptr, rhs.m_ptr);
-}
 
 int main()
 {
