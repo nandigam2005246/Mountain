@@ -1,4 +1,5 @@
 #include <iostream>
+#include <queue>
 using namespace std;
 
 class TreeNode
@@ -60,6 +61,35 @@ public:
 
         cout << root->m_value << " ";
     }
+
+    void printLevelOrderTraversalOrBFS(TreeNode* root)
+    {
+        if (root == nullptr)
+        {
+            return;
+        }
+
+        std::queue<TreeNode*> q;
+        q.push(root);
+
+        while (!q.empty())
+        {
+            TreeNode* node = q.front();
+            q.pop();
+
+            cout << node->m_value << " ";
+
+            if (node->m_left != nullptr)
+            {
+                q.push(node->m_left);
+            }
+
+            if (node->m_right != nullptr)
+            {
+                q.push(node->m_right);
+            }
+        }
+    }
 };
 
 int main()
@@ -87,6 +117,11 @@ int main()
     cout << endl;
 
     root->printPostOrderTreeTraversal(root);
+
+    cout << endl;
+
+    root->printLevelOrderTraversalOrBFS(root);
+
 
     return 0;
 }
