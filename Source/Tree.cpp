@@ -93,6 +93,18 @@ public:
     }
 };
 
+//Delete Tree
+void DeleteTree(TreeNode* root)
+{
+    if (root == nullptr)
+        return;
+
+    DeleteTree(root->m_left);
+    DeleteTree(root->m_right);
+    cout << root->m_value << " ";
+    delete root;
+}
+
 int main()
 {
     TreeNode* root = new TreeNode(1);
@@ -109,40 +121,44 @@ int main()
 
     root->m_right->m_right = new TreeNode(7);
 
+    cout << "Pre Order Traversal: ";
     root->printPreOrderTreeTraversal(root);
 
     cout << endl;
 
+    cout << "In Order Traversal: ";
     root->printInOrderTreeTraversal(root);
 
     cout << endl;
 
+    cout << "Post Order Traversal: ";
     root->printPostOrderTreeTraversal(root);
 
     cout << endl;
 
+    cout << "Level Order Traversal: ";
     root->printLevelOrderTraversalOrBFS(root);
 
+    cout << endl;
 
+    cout << "Delete Tree: ";
+    DeleteTree(root);
     //Input 
+     /*
+            1
+           / \
+          2   3 
+         / \ / \
+        4  5 6  7
+     */
+
+    //Output
     /*
-        1
-      2   3
-    4  5  6 7
-    
+        Pre Order Traversal : 1 2 4 5 3 6 7
+        In Order Traversal : 4 2 5 1 6 3 7
+        Post Order Traversal : 4 5 2 6 7 3 1
+        Level Order Traversal : 1 2 3 4 5 6 7
+        Delete Tree : 4 5 2 6 7 3 1
     */
-
-    // PreOrderTraversalOutput
-    // 1 2 4 5 3 6 7
-
-    // InOrderTraversalOutput
-    // 4 2 5 1 6 3 7
-
-    // PostOrderTraversalOutput
-    // 4 5 2 6 7 3 1
-
-    // LevelOrderTraversalOutput
-    // 1 2 3 4 5 6 7
-
     return 0;
 }
