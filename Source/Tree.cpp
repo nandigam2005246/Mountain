@@ -2,7 +2,7 @@
 
                             Tree Traversal
                            /              \
-    DFS (Depth First Search)              BFS or Level Order
+    DFS (Depth First Search)              BFS(Breadth First Search) or Level Order
    /             |         \                               
  Pre            In         Post
  Order          Order      Order
