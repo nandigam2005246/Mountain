@@ -1,2 +1,2 @@
 # Mountain
-Everything about C++
+Hello, Mountain repo consists of my practice work in C++.
