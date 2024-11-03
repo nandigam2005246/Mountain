@@ -47,7 +47,7 @@ public:
         printInOrderTreeTraversal(root->m_right);
     }
 
-    //(left -> right -> node)
+    //(left -> right -> root)
     void printPostOrderTreeTraversal(TreeNode* root)
     {
         if (root == nullptr)
@@ -62,6 +62,7 @@ public:
         cout << root->m_value << " ";
     }
 
+    // Level wise (L1, L2, L3 ...)
     void printLevelOrderTraversalOrBFS(TreeNode* root)
     {
         if (root == nullptr)
@@ -122,6 +123,26 @@ int main()
 
     root->printLevelOrderTraversalOrBFS(root);
 
+
+    //Input 
+    /*
+        1
+      2   3
+    4  5  6 7
+    
+    */
+
+    // PreOrderTraversalOutput
+    // 1 2 4 5 3 6 7
+
+    // InOrderTraversalOutput
+    // 4 2 5 1 6 3 7
+
+    // PostOrderTraversalOutput
+    // 4 5 2 6 7 3 1
+
+    // LevelOrderTraversalOutput
+    // 1 2 3 4 5 6 7
 
     return 0;
 }
