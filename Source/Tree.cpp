@@ -1,3 +1,14 @@
+/*                          
+
+                            Tree Traversal
+                           /              \
+    DFS (Depth First Search)              BFS or Level Order
+   /             |         \                               
+ Pre            In         Post
+ Order          Order      Order
+
+*/
+
 #include <iostream>
 #include <queue>
 using namespace std;
