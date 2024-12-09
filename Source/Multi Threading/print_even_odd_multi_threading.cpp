@@ -1,30 +1,46 @@
 #include <iostream>
 #include <thread>
+#include <mutex>
+#include <condition_variable>
 
 std::atomic<int> count = 0;
+//std::mutex mtx;
+//std::condition_variable cv;
 const int maxSize = 10;
 
 void printEven()
 {
-	while (count <= maxSize)
+	while (count < maxSize)
 	{
+		//std::unique_lock<std::mutex> lck(mtx);
+		/*cv.wait(lck, []() {
+			return (count % 2 == 0);
+			});*/
 		if (count % 2 == 0)
 		{
 			std::cout << "Even: " << count << std::endl;
 			count++;
 		}
+		/*lck.unlock();
+		cv.notify_one();*/
 	}
 }
 
 void printOdd()
 {
-	while (count <= maxSize)
+	while (count < maxSize)
 	{
+		//std::unique_lock<std::mutex> lck(mtx);
+		/*cv.wait(lck, []() {
+			return (count % 2 == 1);
+			});*/
 		if (count % 2 == 1)
 		{
 			std::cout << "Odd: " << count << std::endl;
 			count++;
 		}
+		/*lck.unlock();
+		cv.notify_one();*/
 	}
 }
 
