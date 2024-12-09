@@ -140,19 +140,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClCompile Include="Source\algorithms.cpp" />
-    <ClCompile Include="Source\client.cpp" />
-    <ClCompile Include="Source\linkedlist.cpp" />
-    <ClCompile Include="Source\smartpointers.cpp" />
-    <ClCompile Include="Source\upcastanddowncast.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Header\algorithms.hpp" />
-    <ClInclude Include="Header\linkedlist.hpp" />
-    <ClInclude Include="Header\smartpointers.hpp" />
-    <ClInclude Include="Header\upcastanddowncast.h" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
