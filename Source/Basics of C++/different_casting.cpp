@@ -1,11 +1,12 @@
 #include <iostream>
 
+
 class Base
 {
 public:
     virtual void func()
     {
-        cout << "Base" << endl;
+        std::cout << "Base" << std::endl;
     }
 };
 
@@ -14,7 +15,7 @@ class Derived : public Base
 public:
     void func() override
     {
-        cout << "Derived" << endl;
+        std::cout << "Derived" << std::endl;
     }
 };
 
@@ -23,7 +24,7 @@ class Base1
 public:
     void func()
     {
-        cout << "Base1" << endl;
+        std::cout << "Base1" << std::endl;
     }
 };
 
@@ -32,7 +33,7 @@ class Derived1
 public:
     void func()
     {
-        cout << "Derived1" << endl;
+        std::cout << "Derived1" << std::endl;
     }
 
 };
@@ -63,7 +64,7 @@ int main()
     }
     else
     {
-        cout << "Cannot cast" << endl;
+        std::cout << "Cannot cast" << std::endl;
     }
 
     /* const_cast */
@@ -79,9 +80,9 @@ int main()
     //able to convert pointer of one type to other type
     //dangerous cast should be careful while using it
     char* chptr = new char('A');
-    cout << *chptr << endl;
+    std::cout << *chptr << std::endl;
     int* iptr = reinterpret_cast<int*>(chptr);
-    cout << *iptr << endl;
+    std::cout << *iptr << std::endl;
     delete chptr;
 
     /* Example 2*/
