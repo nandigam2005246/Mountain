@@ -1,0 +1,178 @@
+S - Single Responsibility Principle (SRP)
+
+A class should have only one reason to change.
+
+C++
+class Square : public Shape
+{
+public:
+float area() override
+{
+return side * side;
+}
+};
+
+Square is responsible only for calculating the area of a square.
+
+❌ Violation:
+
+C++
+class Square
+{
+public:
+float area();
+void saveToDatabase();
+void sendEmail();
+};
+
+Now the class has multiple responsibilities.
+
+O - Open/Closed Principle (OCP)
+
+Open for extension, closed for modification.
+
+C++
+class Shape
+{
+public:
+virtual float area() = 0;
+};
+C++
+class Circle : public Shape
+{
+public:
+float area() override
+{
+return 3.14f * radius * radius;
+}
+};
+
+Adding Circle extends functionality without modifying Square or Triangle.
+
+✅ OCP satisfied.
+
+L - Liskov Substitution Principle (LSP)
+
+Derived classes should be usable wherever the base class is expected.
+
+C++
+void printArea(Shape* shape)
+{
+std::cout << shape->area();
+}
+
+Works with:
+
+C++
+Shape* s1 = new Square();
+Shape* s2 = new Triangle();
+
+printArea(s1);
+printArea(s2);
+
+Because every derived class correctly implements area().
+
+✅ LSP satisfied.
+
+I - Interface Segregation Principle (ISP)
+
+Clients should not be forced to depend on methods they don't use.
+
+Violation
+C++
+class Shape
+{
+public:
+virtual float area() = 0;
+virtual void color() = 0;
+};
+
+Now every shape must implement:
+
+C++
+void color();
+
+even if it doesn't need colors.
+
+Fix
+C++
+class IShape
+{
+public:
+virtual float area() = 0;
+};
+
+class IColorable
+{
+public:
+virtual void color() = 0;
+};
+
+C++
+class Triangle : public IShape
+{
+};
+C++
+class ColoredSquare : public IShape,
+public IColorable
+{
+};
+
+✅ ISP satisfied.
+
+D - Dependency Inversion Principle (DIP)
+
+Depend on abstractions, not concretions.
+
+Violation
+C++
+class Drawing
+{
+private:
+Square square;
+};
+
+Drawing is tightly coupled to Square.
+
+Better
+C++
+class Drawing
+{
+private:
+Shape* shape;
+};
+
+or
+
+C++
+class Drawing
+{
+public:
+Drawing(Shape* shape)
+: m_shape(shape)
+{
+}
+
+private:
+Shape* m_shape;
+};
+
+Now:
+
+C++
+Drawing d1(new Square());
+Drawing d2(new Triangle());
+
+Drawing depends on the abstraction Shape, not concrete classes.
+
+✅ DIP satisfied.
+
+Interview Summary
+
+Using the Shape example:
+
+SRP → Each shape calculates only its own area.
+OCP → Add Circle, Rectangle, etc. without modifying existing shapes.
+LSP → Triangle, Square, Circle can replace Shape.
+ISP → Split area() and color() into separate interfaces.
+DIP → Depend on Shape* instead of Square or Triangle.
